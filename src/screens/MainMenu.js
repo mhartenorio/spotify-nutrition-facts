@@ -93,6 +93,7 @@ const MainMenu = ({ token, logout }) => {
               borderColor: 'black',
               backgroundColor: timeRange === 'short_term' ? 'black' : 'white',
               color: timeRange === 'short_term' ? 'white' : 'black',
+              whiteSpace: 'nowrap',
               '&:hover': {
                 borderColor: GREEN_COLOR,
                 backgroundColor: GREEN_COLOR,
@@ -109,6 +110,7 @@ const MainMenu = ({ token, logout }) => {
               borderColor: 'black',
               backgroundColor: timeRange === 'medium_term' ? 'black' : 'white',
               color: timeRange === 'medium_term' ? 'white' : 'black',
+              whiteSpace: 'nowrap',
               '&:hover': {
                 borderColor: GREEN_COLOR,
                 backgroundColor: GREEN_COLOR,
@@ -125,6 +127,7 @@ const MainMenu = ({ token, logout }) => {
               borderColor: 'black',
               backgroundColor: timeRange === 'long_term' ? 'black' : 'white',
               color: timeRange === 'long_term' ? 'white' : 'black',
+              whiteSpace: 'nowrap',
               '&:hover': {
                 borderColor: GREEN_COLOR,
                 backgroundColor: GREEN_COLOR,

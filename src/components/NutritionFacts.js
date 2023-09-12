@@ -1,6 +1,7 @@
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import React, { forwardRef, useEffect, useState } from "react";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import SpotifyLogo from '../images/spotify-logo.png'
 
 import millisToMinutesAndSeconds from "../utils/utils";
 
@@ -47,7 +48,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
         </Typography>
         <Divider sx={{ backgroundColor: 'black' }} />
         <Typography sx={{ fontSize: '16px', mt: 1 }}>
-          15 servings per container
+          Top Tracks &amp; Artists
         </Typography>
         <Stack direction='row' justifyContent='space-between' mb={1}>
           <Typography sx={{ fontSize: '18px', fontWeight: 'bold' }}>
@@ -88,9 +89,11 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
               <Divider sx={{ backgroundColor: 'black' }} />
               <Grid container justifyContent='space-between'>
                 <Grid item ml={2} xs={9}>
-                  <Typography sx={{ fontSize: '16px' }}>
-                    {track.name}
-                  </Typography>
+                  <a href={track.external_urls.spotify} target='_blank' rel="noreferrer" style={{ color: 'black', textDecoration: 'none' }}>
+                    <Typography sx={{ fontSize: '16px', }}>
+                      {track.name}
+                    </Typography>
+                  </a>
                 </Grid>
                 <Grid item>
                   <b>{millisToMinutesAndSeconds(track.duration_ms)}</b>
@@ -116,9 +119,11 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
               <Divider sx={{ backgroundColor: 'black' }} />
               <Grid container justifyContent='space-between'>
                 <Grid item ml={2} xs={9}>
-                  <Typography sx={{ fontSize: '16px' }}>
-                    {artist.name}
-                  </Typography>
+                  <a href={artist.external_urls.spotify} target='_blank' rel="noreferrer" style={{ color: 'black', textDecoration: 'none' }}>
+                    <Typography sx={{ fontSize: '16px' }}>
+                      {artist.name}
+                    </Typography>
+                  </a>
                 </Grid>
                 <Grid item>
                   <b>{artist.popularity}%</b>
@@ -135,12 +140,20 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
         </Typography>
         <Divider sx={{ backgroundColor: 'black' }} />
         <Typography sx={{ fontSize: '16px', mt: 0.5 }}>
-          <b>Made with:</b> spotify-nutrition.netlify.app
+          <b>Made with:</b> musictrition.netlify.app
         </Typography>
         <Divider sx={{ backgroundColor: 'black', borderWidth: '4px', mb: 1, mt: 0.5 }} />
-        <Typography variant='caption'>
+        {/* <Typography variant='caption'>
           *The % Daily Value tells you how much a nutrient in a serving food contributes to a daily die. 2000 calories a day is used for general nutrition advice.
-        </Typography>
+        </Typography> */}
+        <a href='https://spotify.com' target='_blank' rel="noreferrer">
+          <Box
+            component='img'
+            src={SpotifyLogo}
+            sx={{ width: '25%', objectFit: 'scale-down' }}
+          />
+        </a>
+
       </Box>
 
     </ThemeProvider>

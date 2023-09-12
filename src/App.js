@@ -36,25 +36,26 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Container maxWidth='md'>
-        <Typography variant='h3' fontWeight='bold' color={'#1db954'}>
-          Spotify Nutrition Facts 🎧
-        </Typography>
-        <Typography variant='h5' fontWeight='bold'>
-          Top Tracks and Top Artists Generator
-        </Typography>
-        {!token ?
-          // <Button onClick={requestUserAuth}>Log in with Spotify</Button>
-          <HomeScreen />
-          :
-          <MainMenu
-            token={token}
-            logout={logout}
-          />
-        }
-      </Container>
-    </div>
+    <Container maxWidth='md' disableGutters sx={{ 
+      overflow: 'auto',
+      padding: '36px'
+    }}>
+      <Typography variant='h3' fontWeight='bold' color={'#1db954'}>
+       🎧 Musictrition 
+      </Typography>
+      <Typography variant='h5' fontWeight='bold'>
+        Nutrition Facts for Spotify
+      </Typography>
+      {!token ?
+        // <Button onClick={requestUserAuth}>Log in with Spotify</Button>
+        <HomeScreen />
+        :
+        <MainMenu
+          token={token}
+          logout={logout}
+        />
+      }
+    </Container>
   );
 }
 

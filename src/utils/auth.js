@@ -1,3 +1,12 @@
+/**
+ * This file gathers the necessary authorization flow to get data from Spotify. 
+ * This follows the PKCE flow, as instructed by the web API documentation from
+ * Spotify.
+ *
+ * For more information, read
+ * https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow
+ */
+
 function generateRandomString(length) {
   let text = '';
   let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -7,8 +16,6 @@ function generateRandomString(length) {
   }
   return text;
 }
-
-// const digest = await window.crypto.subtle.digest('SHA-256', data);
 
 async function generateCodeChallenge(codeVerifier) {
   function base64encode(string) {
@@ -26,7 +33,8 @@ async function generateCodeChallenge(codeVerifier) {
 }
 
 const clientId = 'be54291abf8e4786b0656cca45785fd6';
-const redirectUri = 'https://spotify-nutrition.netlify.app';
+const redirectUri = 'https://musictrition.netlify.app';
+// const redirectUri = 'http://localhost:3000/';
 
 export const requestUserAuth = () => {
   let codeVerifier = generateRandomString(128);
@@ -69,27 +77,6 @@ export async function requestAccessToken(code) {
 
   const { access_token } = await result.json();
   return access_token;
-
-  // fetch('https://accounts.spotify.com/api/token', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/x-www-form-urlencoded'
-  //   },
-  //   body: body
-  // })
-  //   .then(response => {
-  //     if (!response.ok) {
-  //       throw new Error('HTTP status ' + response.status);
-  //     }
-  //     return response.json();
-  //   })
-  //   .then(data => {
-  //     return data.access_token;
-  //     // localStorage.setItem('access_token', data.access_token);
-  //   })
-  //   .catch(error => {
-  //     console.error('Error:', error);
-  //   });
 }
 
 
