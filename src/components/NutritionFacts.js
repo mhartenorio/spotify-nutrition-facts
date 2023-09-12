@@ -1,9 +1,9 @@
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import millisToMinutesAndSeconds from "../utils/utils";
 
-const NutritionFacts = ({ profile, tracks, artists, timeRange }) => {
+const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref) => {
   const [totalTime, setTotalTime] = useState('');
 
   const theme = createMuiTheme({
@@ -35,11 +35,11 @@ const NutritionFacts = ({ profile, tracks, artists, timeRange }) => {
 
   return (
     <MuiThemeProvider theme={theme}>
-      <Box sx={{
+      <Box ref={ref} sx={{
         border: '2px solid black',
         padding: 1,
         width: '348px',
-        background: 'white'
+        background: 'white',
       }}>
         <Typography sx={{ fontSize: '36px', fontWeight: 'bold' }}>
           Nutrition Facts
@@ -144,6 +144,6 @@ const NutritionFacts = ({ profile, tracks, artists, timeRange }) => {
 
     </MuiThemeProvider>
   )
-}
+})
 
 export default NutritionFacts;

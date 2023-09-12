@@ -1,13 +1,34 @@
 import { Button, Typography, Stack } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from 'axios';
-import NutritionFacts from "../components/NutritionFacts.tsx";
+import NutritionFacts from "../components/NutritionFacts";
+import html2canvas from 'html2canvas';
 
 const MainMenu = ({ token, logout }) => {
   const [tracks, setTracks] = useState(null);
   const [artists, setArtists] = useState(null);
   const [profile, setProfile] = useState(null);
-  const [timeRange, setTimeRange] = useState('short_term')
+  const [timeRange, setTimeRange] = useState('short_term');
+  const imageRef = useRef();
+
+  const handleDownloadImage = async () => {
+    const element = imageRef.current;
+    const canvas = await html2canvas(element);
+
+    const data = canvas.toDataURL('image/jpg');
+    const link = document.createElement('a');
+
+    if (typeof link.download === 'string') {
+      link.href = data;
+      link.download = 'Spotify-Nutrition-Facts.jpg';
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(data);
+    }
+  };
 
   useEffect(() => {
     const args = new URLSearchParams({
@@ -21,7 +42,6 @@ const MainMenu = ({ token, logout }) => {
     }).then(response =>
       setProfile(response.data)
     ).catch(error => console.log(error))
-
 
     const tracksResponse = axios(
       'https://api.spotify.com/v1/me/top/tracks?' + args, {
@@ -71,7 +91,12 @@ const MainMenu = ({ token, logout }) => {
       </Stack>
       <br />
       <br />
-      <NutritionFacts profile={profile} tracks={tracks} artists={artists} timeRange={timeRange} />
+      <Button variant='outlined' onClick={handleDownloadImage}>
+        Download Image
+      </Button>
+      <br />
+      <br />
+      <NutritionFacts profile={profile} tracks={tracks} artists={artists} timeRange={timeRange} ref={imageRef} />
     </>
   )
 }
