@@ -31,7 +31,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
       time += track.duration_ms;
     });
     setTotalTime(millisToMinutesAndSeconds(time));
-  }, [timeRange])
+  }, [timeRange, tracks])
 
   return (
     <MuiThemeProvider theme={theme}>
@@ -65,7 +65,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
             Calories
           </Typography>
           <Typography sx={{ fontSize: '22px', fontWeight: 'bold' }}>
-            {totalTime && totalTime}
+            {tracks && totalTime}
           </Typography>
         </Stack>
         <Divider sx={{ backgroundColor: 'black', borderWidth: '4px', mb: 1 }} />
@@ -78,7 +78,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
             <b>Top Tracks</b> 10g
           </Typography>
           <Typography sx={{ fontSize: '16px' }}>
-            <b>{totalTime && totalTime}</b>
+            <b>{tracks && totalTime}</b>
           </Typography>
         </Stack>
         {tracks && tracks.map(track => {
