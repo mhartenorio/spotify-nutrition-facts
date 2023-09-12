@@ -31,7 +31,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
       time += track.duration_ms;
     });
     setTotalTime(millisToMinutesAndSeconds(time));
-  }, [])
+  }, [timeRange])
 
   return (
     <MuiThemeProvider theme={theme}>

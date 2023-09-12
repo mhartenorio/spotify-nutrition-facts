@@ -4,3 +4,5 @@ const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
 const RESPONSE_TYPE = "token"
 
 export const AUTHORIZE_URL = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope='user-top-read`;
+
+export const GREEN_COLOR = '#1db954';

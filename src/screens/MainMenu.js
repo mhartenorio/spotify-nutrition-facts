@@ -1,8 +1,10 @@
-import { Button, Typography, Stack } from "@mui/material";
+import { Button, Typography, Stack, Container } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import axios from 'axios';
 import NutritionFacts from "../components/NutritionFacts";
 import html2canvas from 'html2canvas';
+import { GREEN_COLOR } from "../utils/constants";
+import { Download } from "@mui/icons-material";
 
 const MainMenu = ({ token, logout }) => {
   const [tracks, setTracks] = useState(null);
@@ -71,32 +73,91 @@ const MainMenu = ({ token, logout }) => {
 
   return (
     <>
-      <Typography variant='h3'>
-        Results
-      </Typography>
       <br />
-      <Button variant="contained" onClick={logout}>Logout</Button>
-      <br />
-      <br />
-      <Stack direction='row' columnGap={2}>
-        <Button variant='outlined' onClick={() => setTimeRange('short_term')}>
-          4 Weeks
-        </Button>
-        <Button variant='outlined' onClick={() => setTimeRange('medium_term')}>
-          6 Months
-        </Button>
-        <Button variant='outlined' onClick={() => setTimeRange('long_term')}>
-          All-Time
-        </Button>
+      <Stack direction='row' justifyContent='space-between'>
+        <Typography variant='h5'>
+        📝 Results
+        </Typography>
+        <Button variant="outlined" onClick={logout} color='error'>Logout</Button>
       </Stack>
-      <br />
-      <br />
-      <Button variant='outlined' onClick={handleDownloadImage}>
-        Download Image
-      </Button>
-      <br />
-      <br />
-      <NutritionFacts profile={profile} tracks={tracks} artists={artists} timeRange={timeRange} ref={imageRef} />
+      <Typography mt={1}>
+        Here are your results! ✨ You can gather information on your top-streamed songs and artists in three different time frames: within the last month, the last 6 months, or all-time. Click the 'Download Image' button to share your stats online. :D
+      </Typography>
+      <br/>
+      <Container disableGutters justifyContent='center'>
+        <Stack direction='row' columnGap={2}>
+          <Button
+            variant='outlined'
+            onClick={() => setTimeRange('short_term')}
+            sx={{
+              borderColor: 'black',
+              backgroundColor: timeRange === 'short_term' ? 'black' : 'white',
+              color: timeRange === 'short_term' ? 'white' : 'black',
+              '&:hover': {
+                borderColor: GREEN_COLOR,
+                backgroundColor: GREEN_COLOR,
+                color: 'white'
+              }
+            }}
+          >
+            4 Weeks
+          </Button>
+          <Button
+            variant='outlined'
+            onClick={() => setTimeRange('medium_term')}
+            sx={{
+              borderColor: 'black',
+              backgroundColor: timeRange === 'medium_term' ? 'black' : 'white',
+              color: timeRange === 'medium_term' ? 'white' : 'black',
+              '&:hover': {
+                borderColor: GREEN_COLOR,
+                backgroundColor: GREEN_COLOR,
+                color: 'white'
+              }
+            }}
+          >
+            6 Months
+          </Button>
+          <Button
+            variant='outlined'
+            onClick={() => setTimeRange('long_term')}
+            sx={{
+              borderColor: 'black',
+              backgroundColor: timeRange === 'long_term' ? 'black' : 'white',
+              color: timeRange === 'long_term' ? 'white' : 'black',
+              '&:hover': {
+                borderColor: GREEN_COLOR,
+                backgroundColor: GREEN_COLOR,
+                color: 'white'
+              }
+            }}
+          >
+            All-Time
+          </Button>
+        </Stack>
+        <br />
+        <Button
+          variant='contained'
+          onClick={handleDownloadImage}
+          sx={{
+            backgroundColor: GREEN_COLOR,
+            fontWeight: 'bold',
+            '&:hover': {
+              backgroundColor: 'black'
+            }
+          }}
+        >
+          <Download sx={{ marginRight: 1 }} /> Download Image
+        </Button>
+        <br />
+        <br />
+        <NutritionFacts profile={profile} tracks={tracks} artists={artists} timeRange={timeRange} ref={imageRef} />
+        <br />
+        <br />
+        <Typography variant='caption'>
+          Made by <a href='https://mhartenorio.com' target='_blank'>Mhar Tenorio</a> :D
+        </Typography>
+      </Container>
     </>
   )
 }
