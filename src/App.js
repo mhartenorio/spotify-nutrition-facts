@@ -41,7 +41,7 @@ function App() {
       padding: '36px'
     }}>
       <Typography variant='h3' fontWeight='bold' color={'#1db954'}>
-       🎧 Musictrition 
+       My Music Diet 🎧
       </Typography>
       <Typography variant='h5' fontWeight='bold'>
         Nutrition Facts for Spotify

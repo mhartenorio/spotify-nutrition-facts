@@ -33,7 +33,7 @@ async function generateCodeChallenge(codeVerifier) {
 }
 
 const clientId = 'be54291abf8e4786b0656cca45785fd6';
-const redirectUri = 'https://musictrition.netlify.app';
+const redirectUri = 'https://mymusicdiet.netlify.app';
 // const redirectUri = 'http://localhost:3000/';
 
 export const requestUserAuth = () => {
