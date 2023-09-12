@@ -1,12 +1,13 @@
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import React, { forwardRef, useEffect, useState } from "react";
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import millisToMinutesAndSeconds from "../utils/utils";
 
 const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref) => {
   const [totalTime, setTotalTime] = useState('');
 
-  const theme = createMuiTheme({
+  const theme = createTheme({
     typography: {
       fontFamily: '"Helvetica Neue", sans-serif', // default Material-UI font
     },
@@ -34,7 +35,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
   }, [timeRange, tracks])
 
   return (
-    <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <Box ref={ref} sx={{
         border: '2px solid black',
         padding: 1,
@@ -134,7 +135,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
         </Typography>
         <Divider sx={{ backgroundColor: 'black' }} />
         <Typography sx={{ fontSize: '16px', mt: 0.5 }}>
-          <b>Made with:</b> App URL Here
+          <b>Made with:</b> spotify-nutrition-facts.netlify.app
         </Typography>
         <Divider sx={{ backgroundColor: 'black', borderWidth: '4px', mb: 1, mt: 0.5 }} />
         <Typography variant='caption'>
@@ -142,7 +143,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
         </Typography>
       </Box>
 
-    </MuiThemeProvider>
+    </ThemeProvider>
   )
 })
 
