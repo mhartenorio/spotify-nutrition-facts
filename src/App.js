@@ -1,15 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { requestAccessToken, fetchProfile, requestUserAuth } from './utils/auth';
+import { requestAccessToken } from './utils/auth';
 import { Typography, Container } from '@mui/material';
-import { AUTHORIZE_URL } from './utils/constants';
 import MainMenu from './screens/MainMenu';
 import HomeScreen from './screens/HomeScreen';
 
 function App() {
   const [token, setToken] = useState("");
-  const [code, setCode] = useState("")
 
   useEffect(() => {
     const fetchToken = async () => {

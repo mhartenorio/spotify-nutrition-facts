@@ -1,8 +1,8 @@
 import { Button, Typography } from "@mui/material";
 import React from "react";
 import { requestUserAuth } from "../utils/auth";
-import headerImage from '../images/nutrition-facts-header-wider.png'
 import { GREEN_COLOR } from "../utils/constants";
+// import headerImage from '../images/nutrition-facts-header-wider.png'
 
 const HomeScreen = () => {
   return (
@@ -33,7 +33,7 @@ const HomeScreen = () => {
       <br/>
       <br/>
       <Typography variant='caption'>
-        👋 Made by <a href='https://mhartenorio.com' target='_blank'>Mhar Tenorio</a> :D
+        👋 Made by <a href='https://mhartenorio.com' target='_blank' rel="noreferrer">Mhar Tenorio</a> :D
       </Typography>
     </>
   )

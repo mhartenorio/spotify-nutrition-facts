@@ -37,7 +37,9 @@ const MainMenu = ({ token, logout }) => {
       time_range: timeRange,
       limit: 10,
     });
-    const profile = axios('https://api.spotify.com/v1/me', {
+
+    // PROFILE
+    axios('https://api.spotify.com/v1/me', {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -45,7 +47,8 @@ const MainMenu = ({ token, logout }) => {
       setProfile(response.data)
     ).catch(error => console.log(error))
 
-    const tracksResponse = axios(
+    // TRACKS
+    axios(
       'https://api.spotify.com/v1/me/top/tracks?' + args, {
       method: 'GET',
       headers: {
@@ -57,7 +60,8 @@ const MainMenu = ({ token, logout }) => {
       setTracks(response.data.items)
     ).catch(error => console.log(error));
 
-    const artistsResponse = axios(
+    // ARTISTS
+    axios(
       'https://api.spotify.com/v1/me/top/artists?' + args, {
       method: 'GET',
       headers: {
@@ -69,7 +73,7 @@ const MainMenu = ({ token, logout }) => {
       setArtists(response.data.items)
     ).catch(error => console.log(error));
 
-  }, [timeRange])
+  }, [timeRange, token])
 
   return (
     <>
@@ -158,7 +162,7 @@ const MainMenu = ({ token, logout }) => {
         <br />
         <br />
         <Typography variant='caption'>
-          Made by <a href='https://mhartenorio.com' target='_blank'>Mhar Tenorio</a> :D
+          Made by <a href='https://mhartenorio.com' target='_blank' rel="noreferrer">Mhar Tenorio</a> :D
         </Typography>
       </Container>
     </>

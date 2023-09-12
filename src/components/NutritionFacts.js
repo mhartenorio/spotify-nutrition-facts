@@ -25,11 +25,14 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
     case ('long_term'):
       timeRangeText = 'All Time';
       break;
+    default: 
+      timeRangeText = '4 Weeks';
+      break;
   }
 
   useEffect(() => {
     let time = 0;
-    tracks && tracks.map((track) => {
+    tracks && tracks.forEach((track) => {
       time += track.duration_ms;
     });
     setTotalTime(millisToMinutesAndSeconds(time));
