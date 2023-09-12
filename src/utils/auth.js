@@ -26,7 +26,7 @@ async function generateCodeChallenge(codeVerifier) {
 }
 
 const clientId = 'be54291abf8e4786b0656cca45785fd6';
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'https://spotify-nutrition.netlify.app';
 
 export const requestUserAuth = () => {
   let codeVerifier = generateRandomString(128);

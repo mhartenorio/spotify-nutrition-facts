@@ -135,7 +135,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
         </Typography>
         <Divider sx={{ backgroundColor: 'black' }} />
         <Typography sx={{ fontSize: '16px', mt: 0.5 }}>
-          <b>Made with:</b> spotify-nutrition-facts.netlify.app
+          <b>Made with:</b> spotify-nutrition.netlify.app
         </Typography>
         <Divider sx={{ backgroundColor: 'black', borderWidth: '4px', mb: 1, mt: 0.5 }} />
         <Typography variant='caption'>
