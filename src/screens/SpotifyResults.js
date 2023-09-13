@@ -85,7 +85,9 @@ const SpotifyResults = ({ token, logout }) => {
         <Button variant="outlined" onClick={logout} color='error'>Logout</Button>
       </Stack>
       <Typography mt={1}>
-        Here are your results! ✨ You can gather information on your top-streamed songs and artists in three different time frames: within the last month, the last 6 months, or all-time. Click the 'Download Image' button to share your stats online. :D
+        ⚠️ Currently, the app is still in development mode with Spotify's web API, which means that I will have to invite your email to the app to be able to connect your account with Spotify. Howeverrr, currently this publicly works with LastFM accounts. Please try with your LastFM account! :D
+        <div style={{height: '12px'}}/> 
+        ✨ Here are your results! You can gather information on your top-streamed songs and artists in three different time frames: within the last month, the last 6 months, or all-time. Click the 'Download Image' button to share your stats online. :D
       </Typography>
       <br/>
       <Container disableGutters justifyContent='center'>
