@@ -1,10 +1,10 @@
 import { Button, Typography } from "@mui/material";
 import React from "react";
 import { requestUserAuth } from "../utils/auth";
-import { GREEN_COLOR } from "../utils/constants";
+import { GREEN_COLOR, RED_COLOR } from "../utils/constants";
 // import headerImage from '../images/nutrition-facts-header-wider.png'
 
-const HomeScreen = () => {
+const HomeScreen = ({ setIsLastFM }) => {
   return (
     <>
       {/* <img 
@@ -22,6 +22,7 @@ const HomeScreen = () => {
         variant='contained'
         sx={{
           mt: 2,
+          mr: 2,
           background: 'black',
           '&:hover': {
             background: GREEN_COLOR
@@ -29,6 +30,19 @@ const HomeScreen = () => {
         }}
       >
         Log in with Spotify
+      </Button>
+      <Button 
+        onClick={() => setIsLastFM(true)} 
+        variant='contained'
+        sx={{
+          mt: 2,
+          background: 'black',
+          '&:hover': {
+            background: RED_COLOR
+          }
+        }}
+      >
+        Log in with LastFM
       </Button>
       <br/>
       <br/>

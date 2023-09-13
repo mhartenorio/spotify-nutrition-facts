@@ -5,7 +5,7 @@ import SpotifyLogo from '../images/spotify-logo.png'
 
 import millisToMinutesAndSeconds from "../utils/utils";
 
-const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref) => {
+const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange, isLastFM }, ref) => {
   const [totalTime, setTotalTime] = useState('');
 
   const theme = createTheme({
@@ -25,8 +25,8 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
     case ('long_term'):
       timeRangeText = 'All Time';
       break;
-    default: 
-      timeRangeText = '4 Weeks';
+    default:
+      timeRangeText = timeRange;
       break;
   }
 
@@ -112,7 +112,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
             <b>Top Artists</b> 5g
           </Typography>
           <Typography sx={{ fontSize: '16px' }}>
-            <b>Popularity</b>
+            <b>{isLastFM ? 'Play Count' : 'Popularity'}</b>
           </Typography>
         </Stack>
 
@@ -129,7 +129,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
                   </a>
                 </Grid>
                 <Grid item>
-                  <b>{artist.popularity}%</b>
+                  <b>{artist.popularity}{isLastFM ? '' : '%'}</b>
                 </Grid>
               </Grid>
 
@@ -146,16 +146,19 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange }, ref)
           <b>Made with:</b> mymusicdiet.netlify.app
         </Typography>
         <Divider sx={{ backgroundColor: 'black', borderWidth: '4px', mb: 1, mt: 0.5 }} />
-        {/* <Typography variant='caption'>
-          *The % Daily Value tells you how much a nutrient in a serving food contributes to a daily die. 2000 calories a day is used for general nutrition advice.
-        </Typography> */}
-        <a href='https://spotify.com' target='_blank' rel="noreferrer">
-          <Box
-            component='img'
-            src={SpotifyLogo}
-            sx={{ width: '25%', objectFit: 'scale-down' }}
-          />
-        </a>
+        {isLastFM ?
+          <Typography variant='caption'>
+            *The % Daily Value tells you how much a nutrient in a serving food contributes to a daily die. 2000 calories a day is used for general nutrition advice.
+          </Typography>
+          :
+          <a href='https://spotify.com' target='_blank' rel="noreferrer">
+            <Box
+              component='img'
+              src={SpotifyLogo}
+              sx={{ width: '25%', objectFit: 'scale-down' }}
+            />
+          </a>
+        }
 
       </Box>
 

@@ -7,6 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 
 function App() {
   const [token, setToken] = useState("");
+  const [isLastFM, setIsLastFM] = useState(false);
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -43,13 +44,14 @@ function App() {
       <Typography variant='h5' fontWeight='bold'>
         Nutrition Facts for Spotify
       </Typography>
-      {!token ?
-        // <Button onClick={requestUserAuth}>Log in with Spotify</Button>
-        <HomeScreen />
+      {(!token && !isLastFM) ?
+        <HomeScreen setIsLastFM={setIsLastFM} />
         :
         <MainMenu
           token={token}
           logout={logout}
+          isLastFM={isLastFM}
+          setIsLastFM={setIsLastFM}
         />
       }
     </Container>
