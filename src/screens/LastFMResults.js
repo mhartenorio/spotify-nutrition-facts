@@ -84,7 +84,7 @@ const LastFMResults = ({ setIsLastFM }) => {
     //.external_urls.spotify
     // TRACKS
     axios(
-      'http://ws.audioscrobbler.com/2.0/?' + tracksArgs, {
+      'https://ws.audioscrobbler.com/2.0/?' + tracksArgs, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -115,7 +115,7 @@ const LastFMResults = ({ setIsLastFM }) => {
       format: 'json'
     });
     axios(
-      'http://ws.audioscrobbler.com/2.0/?' + artistsArgs, {
+      'https://ws.audioscrobbler.com/2.0/?' + artistsArgs, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
