@@ -148,7 +148,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange, isLast
         <Divider sx={{ backgroundColor: 'black', borderWidth: '4px', mb: 1, mt: 0.5 }} />
         {isLastFM ?
           <Typography variant='caption'>
-            *The % Daily Value tells you how much a nutrient in a serving food contributes to a daily die. 2000 calories a day is used for general nutrition advice.
+            *The % Daily Value tells you how much a nutrient in a serving food contributes to a daily diet. 2000 calories a day is used for general nutrition advice.
           </Typography>
           :
           <a href='https://spotify.com' target='_blank' rel="noreferrer">
