@@ -16,9 +16,9 @@ const HomeScreen = ({ setIsLastFM }) => {
       /> */}
       <Typography >
         📝 Inspired by Receiptify, this app generates an image of the user's <b>Top Tracks and Top Artists</b> based on their Spotify listening activity in the style of a Nutrition Facts label. 
-        <div style={{height: '12px'}}/> 
+        {/* <div style={{height: '12px'}}/> 
         ⚠️ Currently, the app is still in development mode with Spotify's web API, which means that I will have to invite your email to the app to be able to connect your account with Spotify. Howeverrr, currently this publicly works with LastFM accounts. Soooo yayyyy!
-        <div style={{height: '12px'}}/> 
+        <div style={{height: '12px'}}/>  */}
         ✳️ All information is imported from Spotify using their web API. By choosing to use this app, you agree to the use of your Spotify account username and data for your top artists and tracks. I do NOT collect, store, or share any important data from this and all information is solely displayed.  If you would like to revoke this app's permissions, you can visit your apps page on Spotify and click "Remove Access" on "My Music Diet". Please visit this link to <a href='https://support.spotify.com/us/article/spotify-on-other-apps/'>learn more</a>.   
       </Typography>
       <Button 
