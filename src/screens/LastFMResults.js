@@ -95,7 +95,7 @@ const LastFMResults = ({ setIsLastFM }) => {
       trackResponse.forEach((track, i) => {
         trackResponse[i] = {
           name: track.name,
-          artist: track.artist,
+          artists: [{name: track.artist.name}],
           duration_ms: Number(track.duration) * 1000, // Convert to milliseconds
           external_urls: {
             spotify: track.url

@@ -94,7 +94,7 @@ const NutritionFacts = forwardRef(({ profile, tracks, artists, timeRange, isLast
                 <Grid item ml={2} xs={9}>
                   <a href={track.external_urls.spotify} target='_blank' rel="noreferrer" style={{ color: 'black', textDecoration: 'none' }}>
                     <Typography sx={{ fontSize: '16px', }}>
-                      {track.name} - {track.artist}
+                      {track.name} - {track.artists[0].name}
                     </Typography>
                   </a>
                 </Grid>
