@@ -2,7 +2,7 @@ import { Button, Typography } from "@mui/material";
 import React from "react";
 import { requestUserAuth } from "../utils/auth";
 import { GREEN_COLOR, RED_COLOR } from "../utils/constants";
-// import headerImage from '../images/nutrition-facts-header-wider.png'
+import headerImage from '../images/nutrition-facts-header-wider.png'
 
 const HomeScreen = ({ setIsLastFM }) => {
   return (
