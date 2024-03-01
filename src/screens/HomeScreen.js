@@ -51,7 +51,7 @@ const HomeScreen = ({ setIsLastFM }) => {
       <br/>
       <br/>
       <Typography variant='caption'>
-        👋 Made by <a href='https://mhartenorio.com' target='_blank' rel="noreferrer">Mhar Tenorio</a> :D
+        👋 Made with <a href='https://mhartenorio.com' target='_blank' rel="noreferrer">love</a> :D
       </Typography>
     </>
   )
