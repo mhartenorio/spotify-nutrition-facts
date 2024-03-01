@@ -7,13 +7,13 @@ import { GREEN_COLOR, RED_COLOR } from "../utils/constants";
 const HomeScreen = ({ setIsLastFM }) => {
   return (
     <>
-      {/* <img 
+      <img 
         src={headerImage}
         style={{
           width: '100%',
           margin: '16px 0px'
         }}
-      /> */}
+      />
       <Typography >
         📝 Inspired by Receiptify, this app generates an image of the user's <b>Top Tracks and Top Artists</b> based on their Spotify listening activity in the style of a Nutrition Facts label. 
         <div style={{height: '12px'}}/> 
